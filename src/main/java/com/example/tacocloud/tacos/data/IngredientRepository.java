@@ -1,6 +1,6 @@
 package com.example.tacocloud.tacos.data;
 
-import com.example.tacocloud.tacos.Ingredient;
+import com.example.tacocloud.tacos.model.Ingredient;
 import java.util.Optional;
 
 /**
