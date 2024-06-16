@@ -1,17 +1,14 @@
 package com.example.tacocloud.tacos.data;
 
 import com.example.tacocloud.tacos.model.Ingredient;
-import java.util.Optional;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author marat
  */
-public interface IngredientRepository {
+@Repository
+public interface IngredientRepository extends CrudRepository<Ingredient, String> {
 
-    Iterable<Ingredient> findAll();
-
-    Optional<Ingredient> findById(String id);
-
-    Ingredient save(Ingredient ingredient);
 }
