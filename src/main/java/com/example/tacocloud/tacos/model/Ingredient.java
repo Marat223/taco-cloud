@@ -1,11 +1,11 @@
 package com.example.tacocloud.tacos.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.AccessLevel;
+import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 
 /**
  *
@@ -13,14 +13,14 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @AllArgsConstructor
-@Entity
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Document
+@NoArgsConstructor
 public class Ingredient {
 
     @Id
-    private final String id;
-    private final String name;
-    private final Type type;
+    private String id;
+    private String name;
+    private Type type;
 
     public enum Type {
         WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
