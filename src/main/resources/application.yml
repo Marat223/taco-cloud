@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   application:
     name: tacocloud
   data:
@@ -6,3 +8,19 @@ spring:
       url: mongodb://localhost:27017/tacocloud
       database: tacocloud
       port: 27017
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    cache: false
+logging:
+  level:
+    root: DEBUG
+security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: <facebook client id>
+            clientSecret: <facebook client secret>
+            scope: email, public_profile  

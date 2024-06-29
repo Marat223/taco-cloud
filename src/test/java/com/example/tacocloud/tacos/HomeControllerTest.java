@@ -1,6 +1,6 @@
 package com.example.tacocloud.tacos;
 
-import com.example.tacocloud.tacos.web.TacoCloudApplication;
+import com.example.tacocloud.tacos.web.WebConfiguration;
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(TacoCloudApplication.class)
+@WebMvcTest(WebConfiguration.class)
 public class HomeControllerTest {
 
     @Autowired
