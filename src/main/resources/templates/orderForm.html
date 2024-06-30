@@ -41,14 +41,17 @@
             <span class="validationError" th:if="${#fields.hasErrors('deliveryZip')}" th:errors="*{deliveryZip}">ZIP code Error</span>
             <br/>
             <h3>Here's how I'll pay...</h3>
+            <p>4701322211111234</p>
             <label for="ccNumber">Credit Card #: </label>
             <input type="text" th:field="*{ccNumber}"/>
             <span class="validationError" th:if="${#fields.hasErrors('ccNumber')}" th:errors="*{ccNumber}">CC Num Error</span>
             <br/>
+            <p>12/26</p>
             <label for="ccExpiration">Expiration: </label>
             <input type="text" th:field="*{ccExpiration}"/>
             <span class="validationError" th:if="${#fields.hasErrors('ccExpiration')}" th:errors="*{ccExpiration}">CC Expiration Error</span>
             <br/>
+            <p>837</p>
             <label for="ccCVV">CVV: </label>
             <input type="text" th:field="*{ccCVV}"/>
             <span class="validationError" th:if="${#fields.hasErrors('ccCVV')}" th:errors="*{ccCVV}">CVV: Error</span>

@@ -19,18 +19,18 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 @Configuration
 @EnableMethodSecurity
 public class SecurityConfig {
-    
+
     @Bean
     public PasswordEncoder passwordEncoder() {
-        
+
         return new BCryptPasswordEncoder();
     }
-    
+
     @Bean
     public UserDetailsService userDetailsService(UserRepository repository) {
-        
+
         return username -> {
-            
+
             User user = repository.findByUsername(username);
             if (null != user) {
                 return user;
@@ -39,7 +39,7 @@ public class SecurityConfig {
             }
         };
     }
-    
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -62,8 +62,8 @@ public class SecurityConfig {
                 .csrf(csrf
                         -> csrf.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()) // Включение защиты CSRF
                 );
-        
+
         return http.build();
     }
-    
+
 }

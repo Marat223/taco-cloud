@@ -1,4 +1,4 @@
-package com.example.tacocloud.tacos;
+package com.example.tacocloud.tacos.service;
 
 import com.example.tacocloud.tacos.data.OrderRepository;
 import lombok.extern.slf4j.Slf4j;

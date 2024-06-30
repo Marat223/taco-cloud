@@ -1,5 +1,7 @@
 package com.example.tacocloud.tacos.model;
 
+import com.example.tacocloud.tacos.security.User;
+import com.mongodb.lang.NonNull;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -46,6 +48,8 @@ public class TacoOrder implements Serializable {
     @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
     private List<Taco> tacos = new ArrayList<>();
+    @NonNull
+    private User user;
 
     public void addTaco(Taco taco) {
         this.tacos.add(taco);
