@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Taco Cloud - Order list</title>
+        <link rel="stylesheet" th:href="@{/styles.css}" />
+    </head>
+    <body>
+        <form method="POST" th:action="@{/logout}">
+            <input type="submit" value="Logout"/>
+        </form>
+        <h1>Order list</h1>
+        <img th:src="@{/images/TacoCloud.jpg}"/>
+        <table>
+            <thead>
+                <tr>
+                    <th>placedAt</th>
+                    <th>deliveryName</th>
+                    <th>user</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="order : ${orders}">
+                    <td th:text="${order.placedAt}"></td>
+                    <td th:text="${order.deliveryName}"></td>
+                    <td th:text="${order.user.username}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -51,6 +51,8 @@
             <goals>
                 <goal>clean</goal>
                 <goal>install</goal>
+                
+                
             </goals>
         </action>
 </actions>
