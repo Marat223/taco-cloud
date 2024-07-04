@@ -1,5 +1,6 @@
 package com.example.tacocloud.tacos.web;
 
+import com.example.tacocloud.tacos.config.OrderProps;
 import com.example.tacocloud.tacos.data.OrderRepository;
 import com.example.tacocloud.tacos.model.TacoOrder;
 import com.example.tacocloud.tacos.security.User;
@@ -26,11 +27,10 @@ import org.springframework.web.bind.support.SessionStatus;
 @Controller
 @RequestMapping("/orders")
 @SessionAttributes("tacoOrder")
-@ConfigurationProperties(prefix = "taco.orders")
 public class OrderController {
 
-    @Setter
-    private int pageSize = 20;
+    @Autowired
+    private OrderProps orderProps;
 
     @Autowired
     private OrderRepository orderRepo;
@@ -58,7 +58,7 @@ public class OrderController {
     @GetMapping
     public String ordersForUser(@AuthenticationPrincipal User user, Model model) {
 
-        Pageable pageable = PageRequest.of(0, pageSize);
+        Pageable pageable = PageRequest.of(0, orderProps.getPageSize());
         ExampleMatcher matcher = ExampleMatcher.matching()
                 .withMatcher("username", ExampleMatcher.GenericPropertyMatchers.contains().ignoreCase());
         User newUser = new User();
