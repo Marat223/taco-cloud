@@ -29,7 +29,6 @@ public class AdminController {
     @GetMapping
     public String admin() {
 
-        adminService.deleteAllOrders();
         return "admin";
     }
 }
