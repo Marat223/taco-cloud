@@ -4,6 +4,7 @@ import com.example.tacocloud.tacos.data.OrderRepository;
 import com.example.tacocloud.tacos.data.TacoRepository;
 import com.example.tacocloud.tacos.model.Taco;
 import com.example.tacocloud.tacos.model.TacoOrder;
+import com.example.tacocloud.tacos.rest.InternalRestClient;
 import com.example.tacocloud.tacos.service.OrderAdminService;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-//@RestController
+@RestController
 @RequestMapping(path = "/api/tacos", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 @CrossOrigin(origins = "http://localhost:8080")
 @Slf4j
@@ -28,7 +29,7 @@ public class TacoController {
     private TacoRepository tacoRepository;
     @Autowired
     private OrderRepository orderRepository;
-
+    @Autowired
     private OrderAdminService orderAdminService;
 
     @GetMapping(params = "recent")

@@ -13,11 +13,10 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 /**
- *
  * @author marat
  */
 @Configuration
-@EnableMethodSecurity
+@EnableMethodSecurity(securedEnabled = true)
 public class SecurityConfig {
 
     @Bean
@@ -46,7 +45,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeHttpRequests
                         -> authorizeHttpRequests
                         .requestMatchers("/design", "/orders").hasRole("USER")
-                        .requestMatchers("/login", "/", "/**").permitAll() // Разрешаем доступ к публичным страницам
+                        .requestMatchers("/api/**", "/login", "/", "/**").permitAll() // Разрешаем доступ к публичным страницам
                 )
                 .formLogin(formLogin
                         -> formLogin
@@ -61,6 +60,7 @@ public class SecurityConfig {
                 )
                 .csrf(csrf
                         -> csrf.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()) // Включение защиты CSRF
+                        .ignoringRequestMatchers("/api/**", "/data-api/**", "/ingredients/**") // Игнорирование запросов на API
                 );
 
         return http.build();

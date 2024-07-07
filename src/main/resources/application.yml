@@ -20,7 +20,7 @@ logging:
     root: DEBUG
     org:
       springframework:
-        security: INFO
+        security: DEBUG
         org.springframework.data.mongodb.core.MongoTemplate: INFO
         org.mongodb.driver: INFO
 #    file:
