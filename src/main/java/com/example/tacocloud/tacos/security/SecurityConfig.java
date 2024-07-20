@@ -42,11 +42,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(authorizeHttpRequests
-                        -> authorizeHttpRequests
-                        .requestMatchers("/design", "/orders").hasRole("USER")
-                        .requestMatchers("/api/**", "/login", "/", "/**").permitAll() // Разрешаем доступ к публичным страницам
-                )
+                .authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests
+                        .requestMatchers("/design", "/orders").authenticated()
+                        .requestMatchers("/api/**", "/login", "/", "/**").permitAll()
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .anyRequest().authenticated())
                 .formLogin(formLogin
                         -> formLogin
                         .loginPage("/login") // Указываем свою страницу логина

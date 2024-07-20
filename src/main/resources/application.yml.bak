@@ -23,6 +23,9 @@ logging:
         security: DEBUG
         org.springframework.data.mongodb.core.MongoTemplate: INFO
         org.mongodb.driver: INFO
+kafka:
+  bootstrap-servers:
+  - kafka.tacocloud.com:9092
 #    file:
 #      path: /home/marat/Dev/
 #      file: TacoCloud.log
